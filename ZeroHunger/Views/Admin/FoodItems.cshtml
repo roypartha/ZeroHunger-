@@ -1,0 +1,41 @@
+﻿@model List<ZeroHunger.EF.Models.FoodItem>
+
+@{
+    ViewBag.Title = "Food Items";
+    Layout = "~/Views/Shared/_EmployeeLayout.cshtml";
+}
+
+<h2>Food Items</h2>
+
+@if (Model.Count == 0)
+{
+    <p>No food items found.</p>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Collect Request ID</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var foodItem in Model)
+                {
+                    <tr>
+                        <td>@foodItem.Id</td>
+                        <td>@foodItem.Name</td>
+                        <td>@foodItem.Quantity</td>
+                        <td>@foodItem.CollectRequestId</td>
+                        <td><a href="@Url.Action("AssignForm", "Admin", new { id = foodItem.Id })" class="btn btn-primary">Assign</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

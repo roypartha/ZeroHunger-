@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "CreateEmployee";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@{
+    bool CheckType(string gn)
+    {
+        if (Model != null && Model.Type != null && Model.Type.Equals(gn))
+        {
+            return true;
+        }
+        return false;
+    } 
+    
+ }
+
+    <a href="#">Employee list</a>
+<hr />
+
+<form method="post">
+
+
+    <h2>CreateEmployee</h2>
+    <input type="text" name="Name" value="@(Model != null ? Model.Name :"" )" placeholder="Name" />
+    <span class="text-danger">@Html.ValidationMessage("Name")</span>
+    <br> <br />
+
+    <input type="text" name="Email" value="@(Model != null ? Model.Email: "")" placeholder="Email" />
+    <span class="text-danger">@Html.ValidationMessage("Email")</span>
+    <br> <br />
+    Mobile:<input type="text" name="Mobile" placeholder="Enter mobile number" />
+    <br> <br />
+    Birthdate: <input type="date" name="Dob" value="@(Model != null ? Model.Dob.Date.ToString("yyyy-MM-dd") : "")" />
+
+    <span class="text-danger"> @Html.ValidationMessage("Dob") </span>
+    <br> <br />
+    Password: <input type="password" name="Password" placeholder="Set Password" />
+    <br> <br />
+    Type:
+    <input type="radio" checked="@CheckType("Admin")" name="Type" value="1" /> Admin
+    <input type="radio" name="Type" checked="@CheckType("Employee")" value="2" /> Employee <br />
+    <span class="text-danger"> @Html.ValidationMessage("Type") </span>
+    <br/> <br />
+
+    <input type="submit" class="btn btn-success" value="Signup" />
+
+
+</form>

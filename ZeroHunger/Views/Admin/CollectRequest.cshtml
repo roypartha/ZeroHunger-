@@ -1,0 +1,38 @@
+﻿
+@model List<ZeroHunger.EF.Models.CollectRequest>
+
+@{
+    ViewBag.Title = "Collect Requests";
+    Layout = "~/Views/Shared/_EmployeeLayout.cshtml";
+}
+
+<h2>CollectRequest</h2>
+
+<table class="table table-striped table-bordered">
+    <tr>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Assigned Date</th>
+        <th>End Date</th>
+        <th>Status</th>
+        <th>Restaurant ID</th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var collectRequest in Model)
+    {
+        <tr>
+            <td>@collectRequest.Name</td>
+            <td>@collectRequest.Quantity</td>
+            <td>@collectRequest.AssigneDate</td>
+            <td>@collectRequest.EndDate</td>
+            <td>@collectRequest.Status</td>
+            <td>@collectRequest.RestaurantId</td>
+            <td>
+                <a href="/Admin/AssignRequest/@collectRequest.Id" class="btn btn-warning">Assign</a>
+            </td>
+        </tr>
+    }
+</table>
+
+

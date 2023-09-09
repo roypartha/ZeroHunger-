@@ -1,0 +1,15 @@
+﻿@model ZeroHunger.EF.Models.CollectRequest
+
+<h1>Assign Request</h1>
+
+
+
+@using (Html.BeginForm("AssignRequest", "Admin",FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.Id)
+    <p>
+        @Html.Label("Select Employee ID:")
+        @Html.DropDownList("EmployeeId", (SelectList)ViewBag.EmployeeIds, "-- Select Employee --")
+    </p>
+    <input type="submit" value="Assign" class="btn btn-warning" />
+}

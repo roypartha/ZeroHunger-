@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+</head>
+    <body>
+        <div class="container">
+            <h1 class="mt-5">Welcome to Zero Hunter</h1>
+            <p>This is the home page of Zero Hunter.</p>
+            <p>Feel free to explore the website and discover the world of Zero Hunting.</p>
+
+            <div class="row mt-5">
+                <div class="col-md-6">
+                    <h3>Register Your Restaurant</h3>
+                    <p>Are you a restaurant owner interested in donating food? Register your restaurant with Zero Hunter to participate in our food donation program.</p>
+                    <a href="/Home/CreateRestaurant" class="btn btn-primary">Register Your Restaurant</a>
+                </div>
+                <div class="col-md-6">
+                    <h3>Donate Food</h3>
+                    <p>If you have surplus food that you would like to donate, Zero Hunter can help you connect with NGOs and ensure that the food reaches those in need. Donate food today!</p>
+                    <a href="/donation" class="btn btn-primary">Donate Food</a>
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                <a href="/Home/About" class="btn btn-primary">Learn More About Zero Hunter</a>
+            </div>
+        </div>
+    </body>
+
+</html>
